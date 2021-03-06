@@ -12,8 +12,11 @@ public class CheckPoint : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Player>().CheckPoint(transform.position);
-            other.gameObject.GetComponent<Player>().PlayerDeathLevelChecking(transform.position.y - _deathYlevel);
+            if(other.gameObject.GetComponent<Player>().CurrentCheckPoint != transform.position)
+            {
+                other.gameObject.GetComponent<Player>().CheckPoint(transform.position);
+                other.gameObject.GetComponent<Player>().PlayerDeathLevelChecking(transform.position.y - _deathYlevel);
+            }
         }
     }
 }

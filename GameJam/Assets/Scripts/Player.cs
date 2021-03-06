@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int _countHp;
     private float _deathLevel;
     private int _hp;
+    public Vector3 CurrentCheckPoint;
 
     [Header("WallRun")]
     [SerializeField] private LayerMask _whatIsWallRun;
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask _lowFrictionSurface;
     private float _drag;
 
-    private Vector3 _currentCheckPoint;
+    
     private bool _ground;
     private Rigidbody _rb;
 
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _currentCheckPoint = transform.position;
+        CurrentCheckPoint = transform.position;
         _tempRbDragGravity = _rbDragGravity;
         _tempMaxVelocityInAir = _maxVelocityInAir;
     }
@@ -103,32 +104,6 @@ public class Player : MonoBehaviour
         else
         {
             _ground = false;
-        }
-    }
-
-    #endregion
-
-    #region Move
-
-    private void Jump()
-    {
-        if (_ground)
-        {
-            _currentDoubleJump = 0;
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                _rb.AddForce(Vector3.up * _forceJump);
-            }
-        }
-
-        if (!_ground && _currentDoubleJump < _maxDoubleJump && _isDoubleJumpActive)
-        {
-            if(Input.GetButtonDown("Jump"))
-            {
-                _currentDoubleJump++;
-                _rb.AddForce(Vector3.up * _forceJump);
-            }
         }
     }
 
@@ -261,7 +236,7 @@ public class Player : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = _currentCheckPoint;
+        transform.position = CurrentCheckPoint;
         _rb.velocity = Vector3.zero;
     }
 
@@ -271,7 +246,7 @@ public class Player : MonoBehaviour
 
     public void CheckPoint(Vector3 point)
     {
-        _currentCheckPoint = point;
+        CurrentCheckPoint = point;
     }
 
     #endregion
