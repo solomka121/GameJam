@@ -21,7 +21,8 @@ public class Player : MonoBehaviour
 
     [Header("HP")]
     [SerializeField] private int _countHp;
-    private int _hp; 
+    private float _deathLevel;
+    private int _hp;
 
     [Header("WallRun")]
     [SerializeField] private LayerMask _whatIsWallRun;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool _isWallRight, _isWallLeft, _isWallRunning;
     [SerializeField] private float _MaxWallRunTime;
     private bool _readyToJump;
-    
+
 
     [Header("Camera")]
     [SerializeField] private Transform _camera;
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask _lowFrictionSurface;
     private float _drag;
 
-    private Vector3 _nowCheckPoint;
+    private Vector3 _currentCheckPoint;
     private bool _ground;
     private Rigidbody _rb;
 
@@ -61,40 +62,40 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _nowCheckPoint = transform.position;
+        _currentCheckPoint = transform.position;
         _tempRbDragGravity = _rbDragGravity;
         _tempMaxVelocityInAir = _maxVelocityInAir;
     }
     #endregion
 
     #region Check ground
-   /* private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            _ground = true;
-        }
-    }
+    /* private void OnCollisionStay(Collision collision)
+     {
+         if(collision.gameObject.CompareTag("Ground"))
+         {
+             _ground = true;
+         }
+     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            _ground = false;
-        }
-       
-    }*/
+     private void OnCollisionExit(Collision collision)
+     {
+         if (collision.gameObject.CompareTag("Ground"))
+         {
+             _ground = false;
+         }
+
+     }*/
 
     private void CheckGround()
     {
 
         RaycastHit _hit;
-        if (Physics.Raycast(transform.position, Vector3.down,out _hit, 0.9f, _whatIsGround))
+        if (Physics.Raycast(transform.position, Vector3.down, out _hit, 0.9f, _whatIsGround))
         {
             Debug.DrawRay(transform.position, Vector3.down * 0.9f, Color.green);
             _ground = true;
             _rbDragGravity = _tempRbDragGravity;
-            StopCoroutine(ChangeRbGravityDrag(0f,0f,0f));
+            StopCoroutine(ChangeRbGravityDrag(0f, 0f, 0f));
         }
         else
         {
@@ -124,27 +125,27 @@ public class Player : MonoBehaviour
 
         Vector3 move = new Vector3(horizontal, 0, vertical);
 
-        if(_ground)
+        if (_ground)
         {
-			if (move.magnitude >= 0.1f)
-			{
+            if (move.magnitude >= 0.1f)
+            {
                 float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
 
                 Vector3 movementDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                 _rb.AddForce(movementDirection * _speed, ForceMode.Force);
-			}
+            }
 
         }
         else
         { //add velocity limit
             if (move.magnitude >= 0.1f)
-			{
+            {
                 float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
 
                 Vector3 movementDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                 _rb.AddForce(movementDirection * _speedInJump, ForceMode.Force);
-			}
-                
+            }
+
         }
     }
 
@@ -161,31 +162,31 @@ public class Player : MonoBehaviour
             _rb.AddTorque(Vector3.right * Input.GetAxis("Vertical") * 10);
         }
 
-		if (Input.GetButtonDown("Jump") && _ground)
-		{
-			_rb.AddForce(Vector3.up * _forceJump);
-		}
-	}
+        if (Input.GetButtonDown("Jump") && _ground)
+        {
+            _rb.AddForce(Vector3.up * _forceJump);
+        }
+    }
 
     #endregion
 
     #region HP
 
-    public void Atack(int damage)
+    public void LivesCount(int damage)
     {
         _hp -= damage;
 
-        if(_hp <= 0)
+        if (_hp <= 0)
         {
             Death();
         }
-        else 
+        else
         {
             Respawn();
         }
     }
 
-    public void Atack()
+    public void LivesCount()
     {
         _hp -= 1;
 
@@ -199,14 +200,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    
+    public void PlayerDeathLevelChecking(float currentDeathLevel)
+	{
+        _deathLevel = currentDeathLevel;
+	}
+
+    private void CheckDeathLevel()
+	{
+		if (transform.position.y <= _deathLevel)
+		{
+            LivesCount();
+		}
+	}
     private void Death()
     {
         //Destroy(gameObject);
+        //MainMenu
     }
 
     public void Respawn()
     {
-        transform.position = _nowCheckPoint;
+        transform.position = _currentCheckPoint;
         _rb.velocity = Vector3.zero;
     }
 
@@ -216,7 +231,7 @@ public class Player : MonoBehaviour
 
     public void CheckPoint(Vector3 point)
     {
-        _nowCheckPoint = point;
+        _currentCheckPoint = point;
     }
 
     #endregion
@@ -237,7 +252,7 @@ public class Player : MonoBehaviour
         //_rbDragGravity = 0;
         StartCoroutine(ChangeRbGravityDrag(0, _rbDragGravity * 2, _MaxWallRunTime));
         _isWallRunning = true;
-        _maxVelocityInAir = 20; 
+        _maxVelocityInAir = 20;
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -248,26 +263,26 @@ public class Player : MonoBehaviour
         Vector3 movementDirectionForward = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
         Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
 
-       // if (_rb.velocity.magnitude <= _maxWallSpeed)/////////////////////////////////////////////////////////////////////
-       // {
-            _rb.AddForce(movementDirectionForward * _wallrunForce * Time.deltaTime);
+        // if (_rb.velocity.magnitude <= _maxWallSpeed)/////////////////////////////////////////////////////////////////////
+        // {
+        _rb.AddForce(movementDirectionForward * _wallrunForce * Time.deltaTime);
 
-            //Make sure char sticks to wall
-            if (_isWallRight)
-            {
-                _rb.AddForce(movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
-            }
-            else
-            {
-                _rb.AddForce(-movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
-            }
-                
-                
-       // }
+        //Make sure char sticks to wall
+        if (_isWallRight)
+        {
+            _rb.AddForce(movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+        }
+        else
+        {
+            _rb.AddForce(-movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+        }
+
+
+        // }
     }
     private void StopWallRun()
     {
-        Debug.Log("ВЫЗВАЛСЯ");
+        
         _isWallRunning = false;
         _rb.useGravity = true;
         _rbDragGravity = _tempRbDragGravity;
@@ -317,7 +332,7 @@ public class Player : MonoBehaviour
             }
 
             //sidwards wallhop
-            if(Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump"))
             {
                 if (_isWallRight && horizontal < 0) _rb.AddForce(-movementDirectionRight * _forceJump);
                 if (_isWallLeft && horizontal > 0) _rb.AddForce(movementDirectionRight * _forceJump);
@@ -328,58 +343,60 @@ public class Player : MonoBehaviour
             //_rb.AddForce(movementDirectionForward * _forceJump * 0.001f);
         }
     }
-	#endregion
+
     private void ResetJump()
     {
         _readyToJump = true;
     }
-	#region RbDragController
-	private void OnCollisionEnter(Collision collision)
-	{
+    #endregion
+
+    #region RbDragController
+    private void OnCollisionEnter(Collision collision)
+    {
         float horizontal = Input.GetAxis("Horizontal");
-		float vertical = Input.GetAxis("Vertical");
+        float vertical = Input.GetAxis("Vertical");
 
-		Vector3 move = new Vector3(horizontal, 0, vertical);
+        Vector3 move = new Vector3(horizontal, 0, vertical);
 
-		#region HighFriction ground (drag: 0.2 - 2)
-		if (collision.gameObject.layer == 11)//high friction layer
-		{
+        #region HighFriction ground (drag: 0.2 - 2)
+        if (collision.gameObject.layer == 11)//high friction layer
+        {
             _speed = _normalSpeed;
-			if (move.magnitude > 0.3f)
-			{
-			    //if moves
-				if (_rb.drag > _minGroundDrag)
-				{
-						//smoothly change drag to _minGroundDrag
-						StartCoroutine(ChangeDrag(_rb.drag, _minGroundDrag, 1f));
+            if (move.magnitude > 0.3f)
+            {
+                //if moves
+                if (_rb.drag > _minGroundDrag)
+                {
+                    //smoothly change drag to _minGroundDrag
+                    StartCoroutine(ChangeDrag(_rb.drag, _minGroundDrag, 1f));
 
-				}
-			}
-			if (move.magnitude < 0.3f)
-			{
-				//if stands
-				if (_rb.drag < _maxGroundDrag)
-				{
-						//smoothly plus drag value to _maxGroundDrag
-						StartCoroutine(ChangeDrag(_rb.drag, _maxGroundDrag, 1f));
-				}
-			}
-			
-		}
-		#endregion
+                }
+            }
+            if (move.magnitude < 0.3f)
+            {
+                //if stands
+                if (_rb.drag < _maxGroundDrag)
+                {
+                    //smoothly plus drag value to _maxGroundDrag
+                    StartCoroutine(ChangeDrag(_rb.drag, _maxGroundDrag, 1f));
+                }
+            }
 
-		#region LowFriction ground (drag: 0.2)
-        if(collision.gameObject.layer == 12)
-		{
+        }
+        #endregion
+
+        #region LowFriction ground (drag: 0.2)
+        if (collision.gameObject.layer == 12)
+        {
             _speed = _iceSpeed;
             if (_ground)
             {
-              if (_rb.drag > _minGroundDrag)
-              {
-                 //smoothly change drag to _minGroundDrag
-                 StartCoroutine(ChangeDrag(_rb.drag, _minGroundDrag, 1f));
+                if (_rb.drag > _minGroundDrag)
+                {
+                    //smoothly change drag to _minGroundDrag
+                    StartCoroutine(ChangeDrag(_rb.drag, _minGroundDrag, 1f));
 
-              }
+                }
             }
         }
         #endregion
@@ -387,49 +404,49 @@ public class Player : MonoBehaviour
     }
 
     private void RbDragInAir()
-	{
-		if (!_ground)
-		{
+    {
+        if (!_ground)
+        {
             _speed = _normalSpeed;
             _rb.drag = _minGroundDrag;
-            
+
         }
-	}
+    }
     private void VelocityInAir()
-	{
-		if (!_ground)
-		{
+    {
+        if (!_ground)
+        {
             if (_rb.velocity.magnitude > _maxVelocityInAir)
             {
                 _rb.AddForce(-_rb.velocity * _speedInJump / 9, ForceMode.Force);
             }
             _rb.AddForce(Vector2.down * _rbDragGravity);
         }
-	}
+    }
     private void VelocityOnGround()
-	{
+    {
         if (_ground)
         {
-            
+
             if (_rb.velocity.magnitude > _maxVelocityOnGround)
             {
                 _rb.AddForce(-_rb.velocity * _speed / 10, ForceMode.Force);
             }
         }
     }
-	
-	IEnumerator ChangeDrag(float drag_start, float drag_end, float duration)
-	{
+
+    IEnumerator ChangeDrag(float drag_start, float drag_end, float duration)
+    {
         float elapsed = 0.0f;
-		while (elapsed < duration)
-		{
+        while (elapsed < duration)
+        {
             _rb.drag = Mathf.Lerp(drag_start, drag_end, duration);
             elapsed += Time.deltaTime;
             yield return null;
-           
-		}
+
+        }
         _rb.drag = drag_end;
-	}
+    }
 
     IEnumerator ChangeRbGravityDrag(float rbGravityDrag_start, float rbGravityDrag_end, float duration)
     {
@@ -440,32 +457,44 @@ public class Player : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
 
-            if(_ground)
+            if (_ground)
             {
                 break;
             }
         }
         _rbDragGravity = rbGravityDrag_end;
     }
-	#endregion
-	
+    #endregion
 
-	void Update()
+    #region GetSet
+
+    public void SetSpeed(float value)
+    {
+        _speed *= value;
+        _speedInJump *= value;
+        _normalSpeed *= value;
+    }
+
+
+    #endregion
+    void Update()
     {
         CheckGround();
         Jump();
         WallJump();
 
+        //DELETE
         if (Input.GetMouseButtonDown(1))
         {
-            Atack();
+            LivesCount();
         }
+        //DELETE
 
         WallRunInput();
         CheckForWall();
     }
-	private void FixedUpdate()
-	{
+    private void FixedUpdate()
+    {
         if (_force)
         {
             Move();
@@ -479,6 +508,6 @@ public class Player : MonoBehaviour
         VelocityInAir();
         RbDragInAir();
         VelocityOnGround();
-		
-	}
+        CheckDeathLevel();
+    }
 }
