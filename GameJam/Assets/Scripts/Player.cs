@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speedInJump;
     [SerializeField] private float _maxVelocityInAir;
     [SerializeField] private float _maxVelocityOnGround;
+    [SerializeField] private float _rbDragGravity;
 
     [Header("HP")]
     [SerializeField] private int _countHp;
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Check ground
-    private void OnCollisionStay(Collision collision)
+    /*private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
@@ -74,11 +75,28 @@ public class Player : MonoBehaviour
             _ground = false;
         }
        
+    }*/
+
+    private void CheckGround()
+    {
+        
     }
 
     #endregion
 
     #region Move
+
+    private void Jump()
+    {
+        if (_ground)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                _rb.AddForce(Vector3.up * _forceJump);
+            }
+        }
+
+    }
     private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -96,10 +114,6 @@ public class Player : MonoBehaviour
                 _rb.AddForce(movementDirection * _speed, ForceMode.Force);
 			}
 
-			if (Input.GetButtonDown("Jump"))
-            {
-                _rb.AddForce(Vector3.up * _forceJump);
-            }
         }
         else
         { //add velocity limit
@@ -318,7 +332,7 @@ public class Player : MonoBehaviour
             {
                 _rb.AddForce(-_rb.velocity * _speedInJump / 9, ForceMode.Force);
             }
-            _rb.AddForce(Vector2.down * 7);
+            _rb.AddForce(Vector2.down * _rbDragGravity);
         }
 	}
     private void VelocityOnGround()
@@ -350,16 +364,7 @@ public class Player : MonoBehaviour
 
 	void Update()
     {
-        if(_force)
-        {
-            Move();
-        }
-
-        if(!_force)
-        {
-            MoveTurque();
-        }
-
+        Jump();
         if (Input.GetMouseButtonDown(1))
         {
             Atack();
@@ -367,12 +372,21 @@ public class Player : MonoBehaviour
 
         WallRunInput();
         CheckForWall();
-		
-	}
+    }
 	private void FixedUpdate()
 	{
-        RbDragInAir();
+        if (_force)
+        {
+            Move();
+        }
+
+        if (!_force)
+        {
+            MoveTurque();
+        }
+
         VelocityInAir();
+        RbDragInAir();
         VelocityOnGround();
 		
 	}
