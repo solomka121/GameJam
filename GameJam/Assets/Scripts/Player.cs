@@ -16,8 +16,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _maxVelocityOnGround;
     [SerializeField] private float _rbDragGravity;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private int _maxDoubleJump = 1;
     private float _tempRbDragGravity;
     private float _tempMaxVelocityInAir;
+    private int _currentDoubleJump;
+    public bool _isDoubleJumpActive; 
 
     [Header("HP")]
     [SerializeField] private int _countHp;
@@ -110,13 +113,24 @@ public class Player : MonoBehaviour
     {
         if (_ground)
         {
+            _currentDoubleJump = 0;
+
             if (Input.GetButtonDown("Jump"))
             {
                 _rb.AddForce(Vector3.up * _forceJump);
             }
         }
 
+        if (!_ground && _currentDoubleJump < _maxDoubleJump && _isDoubleJumpActive)
+        {
+            if(Input.GetButtonDown("Jump"))
+            {
+                _currentDoubleJump++;
+                _rb.AddForce(Vector3.up * _forceJump);
+            }
+        }
     }
+
     private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -267,7 +281,6 @@ public class Player : MonoBehaviour
     }
     private void StopWallRun()
     {
-        Debug.Log("ВЫЗВАЛСЯ");
         _isWallRunning = false;
         _rb.useGravity = true;
         _rbDragGravity = _tempRbDragGravity;
@@ -328,13 +341,15 @@ public class Player : MonoBehaviour
             //_rb.AddForce(movementDirectionForward * _forceJump * 0.001f);
         }
     }
-	#endregion
+
     private void ResetJump()
     {
         _readyToJump = true;
     }
-	#region RbDragController
-	private void OnCollisionEnter(Collision collision)
+    #endregion
+
+    #region RbDragController
+    private void OnCollisionEnter(Collision collision)
 	{
         float horizontal = Input.GetAxis("Horizontal");
 		float vertical = Input.GetAxis("Vertical");
@@ -447,10 +462,19 @@ public class Player : MonoBehaviour
         }
         _rbDragGravity = rbGravityDrag_end;
     }
-	#endregion
-	
+    #endregion
 
-	void Update()
+    #region GetSet
+
+    public void SetBonusSpeed(float value)
+    {
+        _normalSpeed *= value;
+        _maxVelocityOnGround *= value;
+    }
+
+
+    #endregion
+    void Update()
     {
         CheckGround();
         Jump();
