@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speedInJump;
     [SerializeField] private float _maxVelocityInAir;
     [SerializeField] private float _maxVelocityOnGround;
+    [SerializeField] private float _rbDragGravity;
+    [SerializeField] private LayerMask _whatIsGround;
+    private float _tempRbDragGravity;
+    private float _tempMaxVelocityInAir;
 
     [Header("HP")]
     [SerializeField] private int _countHp;
@@ -22,9 +26,12 @@ public class Player : MonoBehaviour
     [Header("WallRun")]
     [SerializeField] private LayerMask _whatIsWallRun;
     [SerializeField] private Transform _orientation;
-    [SerializeField] private float _wallrunForce, _maxWallrunTime, _maxWallSpeed;
+    [SerializeField] private float _wallrunForce, _maxWallSpeed;
     [SerializeField] private float _maxWallRunCameraTilt, _wallRunCameraTilt;
     [SerializeField] private bool _isWallRight, _isWallLeft, _isWallRunning;
+    [SerializeField] private float _MaxWallRunTime;
+    private bool _readyToJump;
+    
 
     [Header("Camera")]
     [SerializeField] private Transform _camera;
@@ -49,17 +56,19 @@ public class Player : MonoBehaviour
         _rb.drag = _maxGroundDrag;
         _ground = false;
         _hp = _countHp;
+        _readyToJump = true;
     }
 
     private void Start()
     {
         _nowCheckPoint = transform.position;
-        StartWallrun();
+        _tempRbDragGravity = _rbDragGravity;
+        _tempMaxVelocityInAir = _maxVelocityInAir;
     }
     #endregion
 
     #region Check ground
-    private void OnCollisionStay(Collision collision)
+   /* private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
@@ -74,11 +83,40 @@ public class Player : MonoBehaviour
             _ground = false;
         }
        
+    }*/
+
+    private void CheckGround()
+    {
+
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position, Vector3.down,out _hit, 0.9f, _whatIsGround))
+        {
+            Debug.DrawRay(transform.position, Vector3.down * 0.9f, Color.green);
+            _ground = true;
+            _rbDragGravity = _tempRbDragGravity;
+            StopCoroutine(ChangeRbGravityDrag(0f,0f,0f));
+        }
+        else
+        {
+            _ground = false;
+        }
     }
 
     #endregion
 
     #region Move
+
+    private void Jump()
+    {
+        if (_ground)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                _rb.AddForce(Vector3.up * _forceJump);
+            }
+        }
+
+    }
     private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -96,10 +134,6 @@ public class Player : MonoBehaviour
                 _rb.AddForce(movementDirection * _speed, ForceMode.Force);
 			}
 
-			if (Input.GetButtonDown("Jump"))
-            {
-                _rb.AddForce(Vector3.up * _forceJump);
-            }
         }
         else
         { //add velocity limit
@@ -192,34 +226,69 @@ public class Player : MonoBehaviour
     private void WallRunInput() //make sure to call in void Update
     {
         //Wallrun
-        if (Input.GetKey(KeyCode.D) && _isWallRight) StartWallrun();
-        if (Input.GetKey(KeyCode.A) && _isWallLeft) StartWallrun();
+        float horizontal = Input.GetAxis("Horizontal");
+
+        if (horizontal > 0 && _isWallRight) StartWallrun();
+        if (horizontal < 0 && _isWallLeft) StartWallrun();
     }
     private void StartWallrun()
     {
         _rb.useGravity = false;
+        //_rbDragGravity = 0;
+        StartCoroutine(ChangeRbGravityDrag(0, _rbDragGravity * 2, _MaxWallRunTime));
         _isWallRunning = true;
+        _maxVelocityInAir = 20; 
 
-        if (_rb.velocity.magnitude <= _maxWallSpeed)
-        {
-            _rb.AddForce(_orientation.forward * _wallrunForce * Time.deltaTime);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 move = new Vector3(horizontal, 0, vertical);
+
+        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
+        Vector3 movementDirectionForward = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+        Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
+
+       // if (_rb.velocity.magnitude <= _maxWallSpeed)/////////////////////////////////////////////////////////////////////
+       // {
+            _rb.AddForce(movementDirectionForward * _wallrunForce * Time.deltaTime);
 
             //Make sure char sticks to wall
             if (_isWallRight)
-                _rb.AddForce(_orientation.right * _wallrunForce / 5 * Time.deltaTime);
+            {
+                _rb.AddForce(movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+            }
             else
-                _rb.AddForce(-_orientation.right * _wallrunForce / 5 * Time.deltaTime);
-        }
+            {
+                _rb.AddForce(-movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+            }
+                
+                
+       // }
     }
     private void StopWallRun()
     {
+        Debug.Log("ВЫЗВАЛСЯ");
         _isWallRunning = false;
         _rb.useGravity = true;
+        _rbDragGravity = _tempRbDragGravity;
+        _maxVelocityInAir = _tempMaxVelocityInAir;
     }
     private void CheckForWall() //make sure to call in void Update
     {
-        _isWallRight = Physics.Raycast(transform.position, _orientation.right, 1f, _whatIsWallRun);
-        _isWallLeft = Physics.Raycast(transform.position, -_orientation.right, 1f, _whatIsWallRun);
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 move = new Vector3(0, 0, vertical);
+
+        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
+        Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
+
+
+
+        _isWallRight = Physics.Raycast(transform.position, movementDirectionRight, 2f, _whatIsWallRun);
+        _isWallLeft = Physics.Raycast(transform.position, -movementDirectionRight, 2f, _whatIsWallRun);
+
+        Debug.DrawRay(transform.position, movementDirectionRight * 2f, Color.red);
+        Debug.DrawRay(transform.position, -movementDirectionRight * 2f, Color.red);
 
         //leave wall run
         if (!_isWallLeft && !_isWallRight) StopWallRun();
@@ -227,28 +296,43 @@ public class Player : MonoBehaviour
 
     private void WallJump()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 move = new Vector3(0, 0, vertical);
+
+        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
+        Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
+        Vector3 movementDirectionForward = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
         if (_isWallRunning)
         {
-
             //normal jump
-            if (_isWallLeft && !Input.GetKey(KeyCode.D) || _isWallRight && !Input.GetKey(KeyCode.A))
+            if (Input.GetButtonDown("Jump") && _readyToJump)
             {
-                _rb.AddForce(Vector2.up * _forceJump * 1.5f);
-                _rb.AddForce(Vector3.up * _forceJump * 0.5f);
+                _readyToJump = false;
+                Invoke(nameof(ResetJump), 1f);
+                _rb.AddForce(Vector3.up * _forceJump);
+                _rb.AddForce(movementDirectionForward * _forceJump / 7);
             }
 
             //sidwards wallhop
-            if (_isWallRight || _isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) _rb.AddForce(-_orientation.up * _forceJump * 1f);
-            if (_isWallRight || _isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) _rb.AddForce(-_orientation.up * _forceJump * 1f);
-            if (_isWallRight && Input.GetKey(KeyCode.A)) _rb.AddForce(-_orientation.right * _forceJump * 3.2f);
-            if (_isWallLeft && Input.GetKey(KeyCode.D)) _rb.AddForce(_orientation.right * _forceJump * 3.2f);
+            if(Input.GetButtonDown("Jump"))
+            {
+                if (_isWallRight && horizontal < 0) _rb.AddForce(-movementDirectionRight * _forceJump);
+                if (_isWallLeft && horizontal > 0) _rb.AddForce(movementDirectionRight * _forceJump);
+            }
+
 
             //Always add forward force
-            _rb.AddForce(_orientation.forward * _forceJump * 1f);
+            //_rb.AddForce(movementDirectionForward * _forceJump * 0.001f);
         }
     }
 	#endregion
-
+    private void ResetJump()
+    {
+        _readyToJump = true;
+    }
 	#region RbDragController
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -298,8 +382,9 @@ public class Player : MonoBehaviour
               }
             }
         }
-		#endregion
-	}
+        #endregion
+
+    }
 
     private void RbDragInAir()
 	{
@@ -318,7 +403,7 @@ public class Player : MonoBehaviour
             {
                 _rb.AddForce(-_rb.velocity * _speedInJump / 9, ForceMode.Force);
             }
-            _rb.AddForce(Vector2.down * 7);
+            _rb.AddForce(Vector2.down * _rbDragGravity);
         }
 	}
     private void VelocityOnGround()
@@ -345,20 +430,31 @@ public class Player : MonoBehaviour
 		}
         _rb.drag = drag_end;
 	}
+
+    IEnumerator ChangeRbGravityDrag(float rbGravityDrag_start, float rbGravityDrag_end, float duration)
+    {
+        float elapsed = 0.0f;
+        while (elapsed < duration)
+        {
+            _rbDragGravity = Mathf.Lerp(rbGravityDrag_start, rbGravityDrag_end, duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+
+            if(_ground)
+            {
+                break;
+            }
+        }
+        _rbDragGravity = rbGravityDrag_end;
+    }
 	#endregion
 	
 
 	void Update()
     {
-        if(_force)
-        {
-            Move();
-        }
-
-        if(!_force)
-        {
-            MoveTurque();
-        }
+        CheckGround();
+        Jump();
+        WallJump();
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -367,12 +463,21 @@ public class Player : MonoBehaviour
 
         WallRunInput();
         CheckForWall();
-		
-	}
+    }
 	private void FixedUpdate()
 	{
-        RbDragInAir();
+        if (_force)
+        {
+            Move();
+        }
+
+        if (!_force)
+        {
+            MoveTurque();
+        }
+
         VelocityInAir();
+        RbDragInAir();
         VelocityOnGround();
 		
 	}
