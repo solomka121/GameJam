@@ -132,6 +132,32 @@ public class Player : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Move
+
+    private void Jump()
+    {
+        if (_ground)
+        {
+            _currentDoubleJump = 0;
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                _rb.AddForce(Vector3.up * _forceJump);
+            }
+        }
+
+        if (!_ground && _currentDoubleJump < _maxDoubleJump && _isDoubleJumpActive)
+        {
+            if(Input.GetButtonDown("Jump"))
+            {
+                _currentDoubleJump++;
+                _rb.AddForce(Vector3.up * _forceJump);
+            }
+        }
+    }
+
     private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -485,15 +511,6 @@ public class Player : MonoBehaviour
     {
         _normalSpeed *= value;
         _maxVelocityOnGround *= value;
-    }
-
-
-    #endregion
-    void Update()
-    {
-        _speed *= value;
-        _speedInJump *= value;
-        _normalSpeed *= value;
     }
 
 
