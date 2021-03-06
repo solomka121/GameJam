@@ -4562,8 +4562,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.12222741, y: 0.0015341259, z: -0.00018892901, w: 0.99250096}
-  m_LocalPosition: {x: -61.0066, y: 39.546, z: -34.86993}
+  m_LocalRotation: {x: 0.12222755, y: -0.00023016278, z: 0.000028344735, w: 0.9925021}
+  m_LocalPosition: {x: -61.006657, y: 40.031063, z: -34.74862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5790,6 +5790,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vCamOffset: {fileID: 1261607947}
+  offset: 0
+  speed: 0.04
 --- !u!1 &1264770105
 GameObject:
   m_ObjectHideFlags: 3
@@ -6355,7 +6357,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455093425}
-  m_LocalRotation: {x: 0.12222738, y: 0.0015341254, z: -0.0001889289, w: 0.99250096}
+  m_LocalRotation: {x: 0.12222753, y: -0.00023016275, z: 0.00002834475, w: 0.9925021}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10106,13 +10108,13 @@ MonoBehaviour:
   _orientation: {fileID: 2092099255}
   _wallrunForce: 10
   _maxWallSpeed: 100
-  _maxWallRunCameraTilt: 0
-  _wallRunCameraTilt: 0
   _isWallRight: 0
   _isWallLeft: 0
   _isWallRunning: 0
   _MaxWallRunTime: 5
   _camera: {fileID: 963194228}
+  CinemachineController: {fileID: 1261607948}
+  _wallRunCameraTilt: 2
   _maxGroundDrag: 2
   _minGroundDrag: 0.2
   _normalSpeed: 100
