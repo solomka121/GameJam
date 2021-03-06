@@ -367,6 +367,10 @@ public class Player : MonoBehaviour
 
         WallRunInput();
         CheckForWall();
+		
+	}
+	private void FixedUpdate()
+	{
         RbDragInAir();
         VelocityInAir();
         VelocityOnGround();
