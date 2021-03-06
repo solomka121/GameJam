@@ -93,6 +93,8 @@ public class Player : MonoBehaviour
         {
             Debug.DrawRay(transform.position, Vector3.down * 0.9f, Color.green);
             _ground = true;
+            _rbDragGravity = _tempRbDragGravity;
+            StopCoroutine(ChangeRbGravityDrag(0f,0f,0f));
         }
         else
         {
@@ -438,6 +440,10 @@ public class Player : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
 
+            if(_ground)
+            {
+                break;
+            }
         }
         _rbDragGravity = rbGravityDrag_end;
     }
