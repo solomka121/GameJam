@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Check ground
-    /*private void OnCollisionStay(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
@@ -75,11 +75,15 @@ public class Player : MonoBehaviour
             _ground = false;
         }
        
-    }*/
+    }
 
     private void CheckGround()
     {
-        
+        RaycastHit _hit = new RaycastHit();
+        if (Physics.Raycast(transform.position, Vector3.down, 1f))
+        {
+            //Debug.DrawRay()
+        }
     }
 
     #endregion
