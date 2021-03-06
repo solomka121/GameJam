@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    CinemachineCameraController cam;
     // тег Ground повесить на землю, для работы прыжка!!!
     #region Initialization
 
