@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    CinemachineCameraController cam;
     // тег Ground повесить на землю, для работы прыжка!!!
     #region Initialization
 
@@ -85,21 +86,21 @@ public class Player : MonoBehaviour
        
     }*/
 
-    private void CheckGround()
-    {
-
-        RaycastHit _hit;
-        if (Physics.Raycast(transform.position, Vector3.down,out _hit, 0.9f, _whatIsGround))
-        {
-            Debug.DrawRay(transform.position, Vector3.down * 0.9f, Color.green);
-            _ground = true;
-            _rbDragGravity = _tempRbDragGravity;
-            StopCoroutine(ChangeRbGravityDrag(0f,0f,0f));
-        }
-        else
-        {
-            _ground = false;
-        }
+    private void CheckGround()
+    {
+
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position, Vector3.down,out _hit, 0.9f, _whatIsGround))
+        {
+            Debug.DrawRay(transform.position, Vector3.down * 0.9f, Color.green);
+            _ground = true;
+            _rbDragGravity = _tempRbDragGravity;
+            StopCoroutine(ChangeRbGravityDrag(0f,0f,0f));
+        }
+        else
+        {
+            _ground = false;
+        }
     }
 
     #endregion
@@ -236,15 +237,15 @@ public class Player : MonoBehaviour
         _rb.useGravity = false;
         //_rbDragGravity = 0;
         StartCoroutine(ChangeRbGravityDrag(0, _rbDragGravity * 2, _MaxWallRunTime));
-        _isWallRunning = true;
-        _maxVelocityInAir = 20; 
-
+        _isWallRunning = true;
+        _maxVelocityInAir = 20; 
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(horizontal, 0, vertical);
-
-        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
+        Vector3 move = new Vector3(horizontal, 0, vertical);
+
+        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
         Vector3 movementDirectionForward = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
         Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
 
@@ -253,13 +254,13 @@ public class Player : MonoBehaviour
             _rb.AddForce(movementDirectionForward * _wallrunForce * Time.deltaTime);
 
             //Make sure char sticks to wall
-            if (_isWallRight)
-            {
-                _rb.AddForce(movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+            if (_isWallRight)
+            {
+                _rb.AddForce(movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
             }
-            else
-            {
-                _rb.AddForce(-movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+            else
+            {
+                _rb.AddForce(-movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
             }
                 
                 
@@ -277,11 +278,11 @@ public class Player : MonoBehaviour
     {
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(0, 0, vertical);
-
-        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
-        Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
-
+        Vector3 move = new Vector3(0, 0, vertical);
+
+        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
+        Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
+
 
 
         _isWallRight = Physics.Raycast(transform.position, movementDirectionRight, 2f, _whatIsWallRun);
@@ -299,9 +300,9 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(0, 0, vertical);
-
-        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
+        Vector3 move = new Vector3(0, 0, vertical);
+
+        float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
         Vector3 movementDirectionRight = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right;
         Vector3 movementDirectionForward = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
@@ -309,18 +310,18 @@ public class Player : MonoBehaviour
         {
             //normal jump
             if (Input.GetButtonDown("Jump") && _readyToJump)
-            {
-                _readyToJump = false;
-                Invoke(nameof(ResetJump), 1f);
-                _rb.AddForce(Vector3.up * _forceJump);
+            {
+                _readyToJump = false;
+                Invoke(nameof(ResetJump), 1f);
+                _rb.AddForce(Vector3.up * _forceJump);
                 _rb.AddForce(movementDirectionForward * _forceJump / 7);
             }
 
             //sidwards wallhop
-            if(Input.GetButtonDown("Jump"))
-            {
-                if (_isWallRight && horizontal < 0) _rb.AddForce(-movementDirectionRight * _forceJump);
-                if (_isWallLeft && horizontal > 0) _rb.AddForce(movementDirectionRight * _forceJump);
+            if(Input.GetButtonDown("Jump"))
+            {
+                if (_isWallRight && horizontal < 0) _rb.AddForce(-movementDirectionRight * _forceJump);
+                if (_isWallLeft && horizontal > 0) _rb.AddForce(movementDirectionRight * _forceJump);
             }
 
 
@@ -329,9 +330,9 @@ public class Player : MonoBehaviour
         }
     }
 	#endregion
-    private void ResetJump()
-    {
-        _readyToJump = true;
+    private void ResetJump()
+    {
+        _readyToJump = true;
     }
 	#region RbDragController
 	private void OnCollisionEnter(Collision collision)
@@ -381,7 +382,7 @@ public class Player : MonoBehaviour
 
               }
             }
-        }
+        }
         #endregion
 
     }
@@ -431,21 +432,21 @@ public class Player : MonoBehaviour
         _rb.drag = drag_end;
 	}
 
-    IEnumerator ChangeRbGravityDrag(float rbGravityDrag_start, float rbGravityDrag_end, float duration)
-    {
-        float elapsed = 0.0f;
-        while (elapsed < duration)
+    IEnumerator ChangeRbGravityDrag(float rbGravityDrag_start, float rbGravityDrag_end, float duration)
+    {
+        float elapsed = 0.0f;
+        while (elapsed < duration)
         {
             _rbDragGravity = Mathf.Lerp(rbGravityDrag_start, rbGravityDrag_end, duration);
             elapsed += Time.deltaTime;
-            yield return null;
-
-            if(_ground)
-            {
-                break;
-            }
+            yield return null;
+
+            if(_ground)
+            {
+                break;
+            }
         }
-        _rbDragGravity = rbGravityDrag_end;
+        _rbDragGravity = rbGravityDrag_end;
     }
 	#endregion
 	
