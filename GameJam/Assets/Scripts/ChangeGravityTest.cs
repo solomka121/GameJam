@@ -39,6 +39,12 @@ public class ChangeGravityTest : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] private Transform _camera;
+    [SerializeField] private CinemachineCameraController _cinemachineCameraController;
+    [SerializeField] private Vector2 _reversedOffset = new Vector2(0 , -3);
+    [SerializeField] private float _reversedAngle = 180;
+
+    [SerializeField] private float _WallRunTilt;
+    [SerializeField] private Vector2 _wallRunOffset;
 
     [Header("Drag controller")]
     [SerializeField] private float _maxGroundDrag;
@@ -133,10 +139,10 @@ public class ChangeGravityTest : MonoBehaviour
 
     private void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = Input.GetAxis("Horizontal"); 
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(horizontal, 0, vertical);
+        Vector3 move = new Vector3(-horizontal, 0, -vertical);
 
         if (_ground)
         {
@@ -287,6 +293,25 @@ public class ChangeGravityTest : MonoBehaviour
 
         Debug.DrawRay(transform.position, movementDirectionRight * 2f, Color.red);
         Debug.DrawRay(transform.position, -movementDirectionRight * 2f, Color.red);
+
+        if (_isWallRunning)
+        {
+            if (_isWallLeft)
+            {
+                _cinemachineCameraController.Offset = _wallRunOffset;
+                _cinemachineCameraController.Tilt = -_WallRunTilt;
+            }
+            else if (_isWallRight)
+            {
+                _cinemachineCameraController.Offset = new Vector2(-_wallRunOffset.x, _wallRunOffset.y);
+                _cinemachineCameraController.Tilt = _WallRunTilt;
+            }
+        }
+        else
+        {
+            _cinemachineCameraController.Offset = Vector2.zero;
+            _cinemachineCameraController.Tilt = 0;
+        }
 
         //leave wall run
         if (!_isWallLeft && !_isWallRight) StopWallRun();
@@ -458,6 +483,24 @@ public class ChangeGravityTest : MonoBehaviour
     }
 
 
+    #endregion
+
+    #region ReversedCamera
+
+    private void OnEnable()
+    {
+        _cinemachineCameraController.IsReversed = true;
+        _cinemachineCameraController._reverseOffset = _reversedOffset;
+        _cinemachineCameraController._reverseGravityAngle = _reversedAngle;
+        _cinemachineCameraController.InvertInputs(true);
+    }
+    private void OnDisable()
+    {
+        _cinemachineCameraController.IsReversed = false;
+        _cinemachineCameraController._reverseOffset = Vector2.zero;
+        _cinemachineCameraController._reverseGravityAngle = 0;
+        _cinemachineCameraController.InvertInputs(false);
+    }
     #endregion
     void Update()
     {

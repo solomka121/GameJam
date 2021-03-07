@@ -28756,8 +28756,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.122226864, y: 0.003339849, z: -0.00041130552, w: 0.9924965}
-  m_LocalPosition: {x: -232.5159, y: 267.00406, z: -1277.8352}
+  m_LocalRotation: {x: 0.12222736, y: 0.00186455, z: -0.00022962112, w: 0.99250036}
+  m_LocalPosition: {x: 98.25, y: 208, z: -1088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -38762,7 +38762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261607943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -232.5159, y: 267.00406, z: -1277.8352}
+  m_LocalPosition: {x: 98.25, y: 208, z: -1088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1264770107}
@@ -38840,6 +38840,10 @@ MonoBehaviour:
   _panMultiplier: 0.3
   _tilt: 0
   _tiltsSpeed: 0.06
+  IsReversed: 0
+  _reverseGravityAngle: 180
+  _reverseGravityTurnSpeed: 0.02
+  _reverseOffset: {x: 0, y: -3}
 --- !u!114 &1261607949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44533,7 +44537,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455093425}
-  m_LocalRotation: {x: 0.12222686, y: 0.0033398485, z: -0.0004113054, w: 0.9924965}
+  m_LocalRotation: {x: 0.122227326, y: 0.0018645499, z: -0.00022962103, w: 0.99250036}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -64497,8 +64501,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092099249}
-  m_LocalRotation: {x: -0.28875127, y: 0.6510753, z: -0.29484668, w: -0.63701576}
-  m_LocalPosition: {x: -232.5159, y: 264.00406, z: -1269.8352}
+  m_LocalRotation: {x: -0.1390285, y: -0.48680145, z: 0.07880889, w: -0.85876924}
+  m_LocalPosition: {x: 98.25, y: 205, z: -1080}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64557,6 +64561,11 @@ MonoBehaviour:
   _isWallRunning: 0
   _MaxWallRunTime: 5
   _camera: {fileID: 963194228}
+  _cinemachineCameraController: {fileID: 1261607948}
+  _reversedOffset: {x: 0, y: -3}
+  _reversedAngle: 180
+  _WallRunTilt: 15
+  _wallRunOffset: {x: 2, y: 1}
   _maxGroundDrag: 2
   _minGroundDrag: 0.2
   _normalSpeed: 150
