@@ -6,32 +6,45 @@ namespace DefaultNamespace
 {
     public class GamePause : MonoBehaviour
     {
-        [SerializeField] private GameObject pauseMenu;
+        [SerializeField] internal GameObject pauseMenu;
         [SerializeField] private GameObject pauseSettings;
         [SerializeField] private GameObject pauseControls;
 
-
+        public bool messageUIActive;
+        
         private void Update()
         {
-            if (Input.GetButtonDown(NameManager.CancelAxis)) //esc открывает меню паузы и стопит игру
+           
+            if (Input.GetButtonDown(NameManager.CancelAxis) /*Input.GetKeyDown(KeyCode.Escape)*/) //esc открывает меню паузы и стопит игру
             {
+                if (messageUIActive)
+                {
+                    return;
+                } 
                 if (!pauseMenu.activeInHierarchy)
                 {
+                    MenuCode.CursorShow();
                     pauseMenu.SetActive(true);
                     Time.timeScale = 0; //останавливает игру
                 }
                 else
                 {
+                    pauseControls.SetActive(false);
+                    pauseSettings.SetActive(false);
                     pauseMenu.SetActive(false); //выйти с паузы тоже можно с помощью esc
                     Time.timeScale = 1; //восстанавливает ход времени
+                    MenuCode.CursorLock();
                 }
             }
         }
+
+     
 
         public void Resume()
         {
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
+            MenuCode.CursorLock();
         }
 
         public void SettingBtnPause()
@@ -58,8 +71,10 @@ namespace DefaultNamespace
         public void MainMenuBtn()
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene(1, LoadSceneMode.Single);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
             //SceneManager.LoadScene(NameManager.MenuScene);
         }
+
+
     }
 }

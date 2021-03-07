@@ -24,12 +24,12 @@ namespace DefaultNamespace
 
         [Header("HP")] [SerializeField] internal int _countHp;
         internal int _hp; 
+        
 
         public delegate void HpChange(); //делегат для хп худа
         public event HpChange HpChanged; // ивент для хп худа
-        
-       
 
+     
         [Header("WallRun")] [SerializeField] private LayerMask _whatIsWallRun;
         [SerializeField] private Transform _orientation;
         [SerializeField] private float _wallrunForce, _maxWallrunTime, _maxWallSpeed;
@@ -58,7 +58,7 @@ namespace DefaultNamespace
             _drag = _rb.drag;
             _rb.drag = _maxGroundDrag;
             _ground = false;
-            _hp = _countHp;
+            _hp = DifficultyTemp.TempHp;
         }
 
         private void Start()
@@ -410,12 +410,6 @@ namespace DefaultNamespace
             RbDragInAir();
             VelocityInAir();
             VelocityOnGround();
-
-        }
-
-        private void FixedUpdate()
-        {
-
         }
     }
 }

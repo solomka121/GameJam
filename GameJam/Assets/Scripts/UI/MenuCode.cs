@@ -1,4 +1,5 @@
-﻿using DefaultNamespace;
+﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +9,42 @@ public class MenuCode : MonoBehaviour
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject controls;
+    [SerializeField] private GameObject difficulty;
+
+    private const int Easy = 5;
+    private const int Medium = 4;
+    private const int Hard = 3;
+
+    
+    private void Start()
+    {
+        CursorShow();
+    }
 
     public void StartBtn() //кнопка запуска игры
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single); //по айдишнику в билде
+        menu.SetActive(false);
+        controls.SetActive(false);
+        settings.SetActive(false);
+        difficulty.SetActive(true);
+    }
+
+    public void EasyBtn()
+    {
+        DifficultyTemp.TempHp = Easy; // записываем количество хп
+        SceneManager.LoadScene(1, LoadSceneMode.Single); //по айдишнику в билде
+        //SceneManager.LoadScene(NameManager.GameScene); //по названию сцены
+    }    
+    public void MediumBtn()
+    {
+        DifficultyTemp.TempHp = Medium; // записываем количество хп
+        SceneManager.LoadScene(1, LoadSceneMode.Single); //по айдишнику в билде
+        //SceneManager.LoadScene(NameManager.GameScene); //по названию сцены
+    }   
+    public void HardBtn()
+    {
+        DifficultyTemp.TempHp = Hard; // записываем количество хп
+        SceneManager.LoadScene(1, LoadSceneMode.Single); //по айдишнику в билде
         //SceneManager.LoadScene(NameManager.GameScene); //по названию сцены
     }
 
@@ -20,6 +53,7 @@ public class MenuCode : MonoBehaviour
         menu.SetActive(false);
         controls.SetActive(false);
         settings.SetActive(true);
+        difficulty.SetActive(false);
     }
     
     public void ControlsBtn() //переключаем на управление
@@ -27,6 +61,7 @@ public class MenuCode : MonoBehaviour
         menu.SetActive(false);
         controls.SetActive(true);
         settings.SetActive(false);
+        difficulty.SetActive(false);
     }
 
     public void BackBtn() //возвращает в меню
@@ -34,10 +69,23 @@ public class MenuCode : MonoBehaviour
         menu.SetActive(true);
         settings.SetActive(false);
         controls.SetActive(false);
+        difficulty.SetActive(false);
     }
 
     public void ExitBtn() 
     {
         Application.Quit();
+    }
+    
+    public static void CursorLock()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public static void CursorShow()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
