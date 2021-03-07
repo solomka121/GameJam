@@ -2,13 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8486db16-98f1-4830-870d-dbe481d41fc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/indexLayout.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/riderModule.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Slider.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Slider.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Canvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Canvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/CanvasMainMenu.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/CanvasMainMenu.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/20137.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/20137.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/boostspeed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/boostspeed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/controls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/controls.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/controlsEPT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/controlsEPT.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/doubleJump.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/doubleJump.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/easy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/easy.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/emptyheart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/emptyheart.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/emptyheart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/emptyheart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/exit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/exit.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/hard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/hard.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/heart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/heart.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/heart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/ifh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/ifh.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/mainManu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/mainManu.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/medium.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/medium.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/music.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/music.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/return.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/return.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/start.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/start.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/volume.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/Images/eee/volume.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MenuNew.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MenuNew.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/20137.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/20137.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/emptyheart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/emptyheart.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/emptyheart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/emptyheart.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/heart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/heart.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/heart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Images/heart.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/UI code/HealthPointUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI code/HealthPointUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/UI code/MenuCode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI code/MenuCode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +86,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthPointUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/DifficultyTemp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuCode.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/UI code/MenuCode.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/UI code/HealthPointUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pQzVqCCeQkWPM2R3rbqdqLPRbE" />
@@ -76,6 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615130129406</updated>
       <workItem from="1615130142505" duration="961000" />
+      <workItem from="1615139552626" duration="4746000" />
     </task>
     <servers />
   </component>
@@ -94,6 +161,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

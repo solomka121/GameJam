@@ -49,7 +49,10 @@
           </e>
           <e p="Player.cs" t="Include" />
           <e p="TubeGravity.cs" t="Include" />
-          <e p="UI" t="Include">
+        </e>
+        <e p="TubeBoost.cs" t="Include" />
+        <e p="UI" t="Include">
+          <e p="UI code" t="Include">
             <e p="BonusDurationUI.cs" t="Include" />
             <e p="DifficultyTemp.cs" t="Include" />
             <e p="GamePause.cs" t="Include" />
@@ -61,7 +64,6 @@
             <e p="TestBonus.cs" t="Include" />
           </e>
         </e>
-        <e p="TubeBoost.cs" t="Include" />
       </e>
       <e p="GameJam.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />

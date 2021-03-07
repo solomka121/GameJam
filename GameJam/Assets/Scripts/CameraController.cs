@@ -16,7 +16,7 @@ internal class CameraController : MonoBehaviour
     [Header("Shake")]
     [SerializeField] private bool shake;
     private Vector3 _smoothedTargetPosition;
-    //private Vector3 _offset;
+    private Vector3 _offset;
 
     [Header("WallRun")]
     //      WALL RUN
@@ -28,10 +28,10 @@ internal class CameraController : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
 
-        // Using lookAt without camera anchor
-        //_offset = transform.position - _followTarget.position;
+        //Using lookAt without camera anchor
+        _offset = transform.position - _followTarget.position;
     }
 
     private void LateUpdate()
@@ -49,8 +49,8 @@ internal class CameraController : MonoBehaviour
         _cameraAnchor.eulerAngles = clampedCameraAnchorAngle;
 
         // Using lookAt without camera anchor
-        /*Quaternion camTurnAnlge = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up);
-        _offset = camTurnAnlge * _offset;*/
+        //Quaternion camTurnAnlge = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up);
+        //_offset = camTurnAnlge * _offset;
 
         #endregion
 
@@ -60,9 +60,9 @@ internal class CameraController : MonoBehaviour
         _cameraAnchor.position = _smoothedTargetPosition;
 
         // Using lookAt without camera anchor
-        /*_smoothedTargetPosition = Vector3.Slerp(_smoothedTargetPosition, _followTarget.position, _speed);
+        _smoothedTargetPosition = Vector3.Slerp(_smoothedTargetPosition, _followTarget.position, _speed);
         transform.position = _smoothedTargetPosition + _offset;
-        transform.LookAt(_followTarget.position);*/
+        transform.LookAt(_followTarget.position);
 
         #endregion
 

@@ -20,7 +20,7 @@ namespace DefaultNamespace
             _player = GetComponent<Player>(); // подписываемся на класс до старта, чтобы можно было подписаться на ивент
         }
 
-        /*private void Start()
+        private void Start()
         {
             _numOfHearts = _player._hp;
             _hpHUD = _player._hp;
@@ -39,7 +39,7 @@ namespace DefaultNamespace
         private void OnDisable() // отписываемся
         {
             _player.HpChanged -= UpdateHpUI;
-        }*/
+        }
 
         private void Update()
         {

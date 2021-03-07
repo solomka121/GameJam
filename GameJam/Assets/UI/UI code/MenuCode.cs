@@ -8,7 +8,7 @@ public class MenuCode : MonoBehaviour
     // сериализуем объекты с менюшками
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject settings;
-    [SerializeField] private GameObject controls;
+    //[SerializeField] private GameObject controls;
     [SerializeField] private GameObject difficulty;
 
     private const int Easy = 10;
@@ -24,7 +24,7 @@ public class MenuCode : MonoBehaviour
     public void StartBtn() //кнопка запуска игры
     {
         menu.SetActive(false);
-        controls.SetActive(false);
+        //controls.SetActive(false);
         settings.SetActive(false);
         difficulty.SetActive(true);
     }
@@ -51,24 +51,24 @@ public class MenuCode : MonoBehaviour
     public void SettingsBtn() //переключаем на настройки
     {
         menu.SetActive(false);
-        controls.SetActive(false);
+        //controls.SetActive(false);
         settings.SetActive(true);
         difficulty.SetActive(false);
     }
     
-    public void ControlsBtn() //переключаем на управление
+    /*public void ControlsBtn() //переключаем на управление
     {
         menu.SetActive(false);
-        controls.SetActive(true);
+        //controls.SetActive(true);
         settings.SetActive(false);
         difficulty.SetActive(false);
-    }
+    }*/
 
     public void BackBtn() //возвращает в меню
     {
         menu.SetActive(true);
         settings.SetActive(false);
-        controls.SetActive(false);
+        //controls.SetActive(false);
         difficulty.SetActive(false);
     }
 
