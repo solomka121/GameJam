@@ -14469,7 +14469,7 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
     m_Bias: 0
   m_RecenterToTargetHeading:
@@ -18746,7 +18746,7 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
     m_Bias: 0
   m_RecenterToTargetHeading:
@@ -28600,7 +28600,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.122226864, y: 0.003339849, z: -0.00041130552, w: 0.9924965}
+  m_LocalRotation: {x: 0.12222736, y: 0.00186455, z: -0.00022962112, w: 0.99250036}
   m_LocalPosition: {x: 106.18667, y: 208.86375, z: -1083.673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -38486,6 +38486,9 @@ GameObject:
   - component: {fileID: 1261607945}
   - component: {fileID: 1261607944}
   - component: {fileID: 1261607946}
+  - component: {fileID: 1261607949}
+  - component: {fileID: 1261607948}
+  - component: {fileID: 1261607947}
   m_Layer: 0
   m_Name: ThirPersonCamera
   m_TagString: Untagged
@@ -38571,7 +38574,7 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
     m_Bias: 0
   m_RecenterToTargetHeading:
@@ -38625,7 +38628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 6400
   m_IgnoreTag: Player
   m_TransparentLayers:
     serializedVersion: 2
@@ -38641,6 +38644,60 @@ MonoBehaviour:
   m_Damping: 0.2
   m_DampingWhenOccluded: 0.2
   m_OptimalTargetDistance: 0
+--- !u!114 &1261607947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261607943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0544e7b14d134a1449e61175446cfb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 0
+  m_Tilt: 0
+  m_Pan: 0
+  m_Dutch: 0
+  m_ZoomScale: 1
+  m_FollowAttachment: 1
+  m_LookAtAttachment: 1
+--- !u!114 &1261607948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261607943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd704e9d9c0239e45a413c0ed5432ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vCamOffset: {fileID: 1261607949}
+  cinemachineRecomposer: {fileID: 1261607947}
+  _offset: {x: 0, y: 0}
+  _offsetSpeed: 0.1
+  _pan: 0
+  _panMultiplier: 0.3
+  _tilt: 0
+  _tiltsSpeed: 0.06
+--- !u!114 &1261607949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261607943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_ApplyAfter: 1
+  m_PreserveComposition: 0
 --- !u!1 &1263304836
 GameObject:
   m_ObjectHideFlags: 0
@@ -43971,7 +44028,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455093425}
-  m_LocalRotation: {x: 0.12222686, y: 0.0033398485, z: -0.0004113054, w: 0.9924965}
+  m_LocalRotation: {x: 0.122227326, y: 0.0018645499, z: -0.00022962103, w: 0.99250036}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -50207,7 +50264,7 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
     m_Bias: 0
   m_RecenterToTargetHeading:
@@ -63839,6 +63896,9 @@ MonoBehaviour:
   _isWallRunning: 0
   _MaxWallRunTime: 5
   _camera: {fileID: 963194228}
+  _cinemachineCameraController: {fileID: 1261607948}
+  _WallRunTilt: 15
+  _wallRunOffset: {x: 2, y: 1}
   _maxGroundDrag: 2
   _minGroundDrag: 0.2
   _normalSpeed: 150
