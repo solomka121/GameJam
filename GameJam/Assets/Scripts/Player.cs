@@ -31,14 +31,15 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask _whatIsWallRun;
     [SerializeField] private Transform _orientation;
     [SerializeField] private float _wallrunForce, _maxWallSpeed;
-    [SerializeField] private float _maxWallRunCameraTilt, _wallRunCameraTilt;
     [SerializeField] private bool _isWallRight, _isWallLeft, _isWallRunning;
     [SerializeField] private float _MaxWallRunTime;
     private bool _readyToJump;
 
-
     [Header("Camera")]
     [SerializeField] private Transform _camera;
+    [SerializeField] private CinemachineCameraController _cinemachineCameraController;
+    [SerializeField] private float _WallRunTilt;
+    [SerializeField] private Vector2 _wallRunOffset;
 
     [Header("Drag controller")]
     [SerializeField] private float _maxGroundDrag;
@@ -316,6 +317,25 @@ public class Player : MonoBehaviour
 
         Debug.DrawRay(transform.position, movementDirectionRight * 2f, Color.red);
         Debug.DrawRay(transform.position, -movementDirectionRight * 2f, Color.red);
+
+        if (_isWallRunning)
+        {
+            if (_isWallLeft)
+            {
+                _cinemachineCameraController.Offset = _wallRunOffset;
+                _cinemachineCameraController.Tilt = -_WallRunTilt;
+            }
+            else if (_isWallRight)
+            {
+                _cinemachineCameraController.Offset = new Vector2(-_wallRunOffset.x, _wallRunOffset.y);
+                _cinemachineCameraController.Tilt = _WallRunTilt;
+            }
+        }
+        else
+        {
+            _cinemachineCameraController.Offset = Vector2.zero;
+            _cinemachineCameraController.Tilt = 0;
+        }
 
         //leave wall run
         if (!_isWallLeft && !_isWallRight) StopWallRun();
