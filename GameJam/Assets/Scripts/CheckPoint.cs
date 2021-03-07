@@ -6,7 +6,7 @@ public class CheckPoint : MonoBehaviour
 {
     [SerializeField] private float _deathYlevel;
     //this method creates checkpoints
-    // тег Player повесить на шарик, для работы чекпоинтов!!!
+    // tag Player on player for script to work!!
     
     private void OnTriggerEnter(Collider other)
     {
