@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] private Transform _camera;
+    [SerializeField] private CinemachineCameraController _cinemachineCameraController;
+    [SerializeField] private float _offset;
 
     [Header("Drag controller")]
     [SerializeField] private float _maxGroundDrag;
@@ -317,6 +319,23 @@ public class Player : MonoBehaviour
 
         Debug.DrawRay(transform.position, movementDirectionRight * 2f, Color.red);
         Debug.DrawRay(transform.position, -movementDirectionRight * 2f, Color.red);
+
+        if (_isWallRunning)
+        {
+            if (_isWallLeft)
+            {
+                _cinemachineCameraController.Offset = _offset;
+            }
+            else if (_isWallRight)
+            {
+                _cinemachineCameraController.Offset = -_offset;
+            }
+        }
+        else
+        {
+            _cinemachineCameraController.Offset = 0f;
+        }
+
 
         //leave wall run
         if (!_isWallLeft && !_isWallRight) StopWallRun();

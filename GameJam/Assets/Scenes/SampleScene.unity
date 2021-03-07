@@ -7318,6 +7318,7 @@ GameObject:
   - component: {fileID: 1261607944}
   - component: {fileID: 1261607946}
   - component: {fileID: 1261607947}
+  - component: {fileID: 1261607948}
   m_Layer: 0
   m_Name: ThirPersonCamera
   m_TagString: Untagged
@@ -7488,6 +7489,21 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
+--- !u!114 &1261607948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261607943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd704e9d9c0239e45a413c0ed5432ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vCamOffset: {fileID: 1261607947}
+  offset: 0
+  speed: 0.1
 --- !u!1 &1264770105
 GameObject:
   m_ObjectHideFlags: 3
@@ -12883,6 +12899,8 @@ MonoBehaviour:
   _isWallRunning: 0
   _MaxWallRunTime: 600
   _camera: {fileID: 963194228}
+  _cinemachineCameraController: {fileID: 1261607948}
+  _offset: 2
   _maxGroundDrag: 2
   _minGroundDrag: 0.2
   _normalSpeed: 150
