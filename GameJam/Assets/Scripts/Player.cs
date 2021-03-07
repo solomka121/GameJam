@@ -66,7 +66,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        CurrentCheckPoint = transform.position;
         _tempRbDragGravity = _rbDragGravity;
         _tempMaxVelocityInAir = _maxVelocityInAir;
     }
@@ -187,19 +186,19 @@ public class Player : MonoBehaviour
 
     #region HP
 
-    public void LivesCount(int damage)
-    {
-        _hp -= damage;
+    //public void LivesCount(int damage)
+    //{
+    //    _hp -= damage;
 
-        if (_hp <= 0)
-        {
-            Death();
-        }
-        else
-        {
-            Respawn();
-        }
-    }
+    //    if (_hp <= 0)
+    //    {
+    //        Death();
+    //    }
+    //    else
+    //    {
+    //        Respawn();
+    //    }
+    //}
 
     public void LivesCount()
     {
@@ -367,16 +366,16 @@ public class Player : MonoBehaviour
     #region RbDragController
     private void OnCollisionEnter(Collision collision)
 	{
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+		float horizontal = Input.GetAxis("Horizontal");
+		float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(horizontal, 0, vertical);
+		Vector3 move = new Vector3(horizontal, 0, vertical);
 
-        #region HighFriction ground (drag: 0.2 - 2)
-        if (collision.gameObject.layer == 11)//high friction layer
+		#region HighFriction ground (drag: 0.2 - 2)
+		if (collision.gameObject.layer == 11)//high friction layer
         {
             _speed = _normalSpeed;
-            if (move.magnitude > 0.3f)
+            if (_rb.velocity.magnitude > 3f /*&& move*/)
             {
                 //if moves
                 if (_rb.drag > _minGroundDrag)
@@ -386,7 +385,7 @@ public class Player : MonoBehaviour
 
                 }
             }
-            if (move.magnitude < 0.3f)
+            if (_rb.velocity.magnitude < 3f)
             {
                 //if stands
                 if (_rb.drag < _maxGroundDrag)
@@ -419,13 +418,13 @@ public class Player : MonoBehaviour
 
     private void RbDragInAir()
     {
-        if (!_ground)
-        {
-            _speed = _normalSpeed;
-            _rb.drag = _minGroundDrag;
+		if (!_ground)
+		{
+			_speed = _normalSpeed;
+			_rb.drag = _minGroundDrag;
 
-        }
-    }
+		}
+	}
     private void VelocityInAir()
     {
         if (!_ground)
@@ -451,15 +450,20 @@ public class Player : MonoBehaviour
 
     IEnumerator ChangeDrag(float drag_start, float drag_end, float duration)
     {
+        Debug.Log("Corutine start");
         float elapsed = 0.0f;
+        float interpolator = 0.1f;
+        
         while (elapsed < duration)
         {
-            _rb.drag = Mathf.Lerp(drag_start, drag_end, duration);
+           drag_start = Mathf.Lerp(drag_start, drag_end, interpolator);
+            _rb.drag = drag_start;
             elapsed += Time.deltaTime;
             yield return null;
 
         }
         _rb.drag = drag_end;
+        Debug.Log("Corutine end");
     }
 
     IEnumerator ChangeRbGravityDrag(float rbGravityDrag_start, float rbGravityDrag_end, float duration)

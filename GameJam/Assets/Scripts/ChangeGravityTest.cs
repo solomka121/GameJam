@@ -67,7 +67,6 @@ public class ChangeGravityTest : MonoBehaviour
 
     private void Start()
     {
-        CurrentCheckPoint = transform.position;
         _tempRbDragGravity = _rbDragGravity;
         _tempMaxVelocityInAir = _maxVelocityInAir;
     }
@@ -188,19 +187,19 @@ public class ChangeGravityTest : MonoBehaviour
 
     #region HP
 
-    public void LivesCount(int damage)
-    {
-        _hp -= damage;
+    //public void LivesCount(int damage)
+    //{
+    //    _hp -= damage;
 
-        if (_hp <= 0)
-        {
-            Death();
-        }
-        else
-        {
-            Respawn();
-        }
-    }
+    //    if (_hp <= 0)
+    //    {
+    //        Death();
+    //    }
+    //    else
+    //    {
+    //        Respawn();
+    //    }
+    //}
 
     public void LivesCount()
     {
@@ -239,6 +238,8 @@ public class ChangeGravityTest : MonoBehaviour
     {
         transform.position = CurrentCheckPoint;
         _rb.velocity = Vector3.zero;
+        gameObject.GetComponent<Player>().enabled = true;
+        this.enabled = false;
     }
 
     #endregion
