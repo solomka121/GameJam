@@ -23,9 +23,8 @@ public class ChangeGravityTest : MonoBehaviour
     public bool _isDoubleJumpActive;
 
     [Header("HP")]
-    [SerializeField] private int _countHp;
+    [SerializeField] internal int _hp;
     private float _deathLevel;
-    private int _hp;
     public Vector3 CurrentCheckPoint;
 
     [Header("WallRun")]
@@ -60,7 +59,6 @@ public class ChangeGravityTest : MonoBehaviour
         _drag = _rb.drag;
         _rb.drag = _maxGroundDrag;
         _ground = false;
-        _hp = _countHp;
         _readyToJump = true;
         _rb.useGravity = false;
     }
@@ -187,34 +185,6 @@ public class ChangeGravityTest : MonoBehaviour
 
     #region HP
 
-    //public void LivesCount(int damage)
-    //{
-    //    _hp -= damage;
-
-    //    if (_hp <= 0)
-    //    {
-    //        Death();
-    //    }
-    //    else
-    //    {
-    //        Respawn();
-    //    }
-    //}
-
-    public void LivesCount()
-    {
-        _hp -= 1;
-
-        if (_hp <= 0)
-        {
-            Death();
-        }
-        else
-        {
-            Respawn();
-        }
-    }
-
 
     public void PlayerDeathLevelChecking(float currentDeathLevel)
     {
@@ -223,9 +193,9 @@ public class ChangeGravityTest : MonoBehaviour
 
     private void CheckDeathLevel()
     {
-        if (transform.position.y <= _deathLevel || transform.position.y > 295f)
+        if (transform.position.y <= _deathLevel || transform.position.y > 300f)
         {
-            LivesCount();
+            gameObject.GetComponent<Player>().LivesCount();
         }
     }
     private void Death()
@@ -236,10 +206,7 @@ public class ChangeGravityTest : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = CurrentCheckPoint;
-        _rb.velocity = Vector3.zero;
-        gameObject.GetComponent<Player>().enabled = true;
-        this.enabled = false;
+
     }
 
     #endregion
@@ -497,13 +464,6 @@ public class ChangeGravityTest : MonoBehaviour
         CheckGround();
         Jump();
         WallJump();
-
-        //DELETE
-        if (Input.GetMouseButtonDown(1))
-        {
-            LivesCount();
-        }
-        //DELETE
 
         WallRunInput();
         CheckForWall();

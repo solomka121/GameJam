@@ -237,6 +237,8 @@ public class Player : MonoBehaviour
     {
         transform.position = CurrentCheckPoint;
         _rb.velocity = Vector3.zero;
+        gameObject.GetComponent<ChangeGravityTest>().enabled = false;
+        this.enabled = true;
     }
 
     #endregion
