@@ -27,6 +27,7 @@ namespace DefaultNamespace
             message.SetActive(false);
             MenuCode.CursorLock();
             GamePause.messageUIActive = false;
+            gameObject.SetActive(false);
         }
     }
 }

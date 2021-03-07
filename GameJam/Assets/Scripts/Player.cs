@@ -26,11 +26,14 @@ public class Player : MonoBehaviour
 
     [Header("HP")]
     internal int _hp;
+
+    private int _maxHp;
     private float _deathLevel;
     public Vector3 CurrentCheckPoint;
     
     public delegate void HpChange(); //делегат для хп худа
     public event HpChange HpChanged; //ивент для хп худа
+    
 
     [Header("WallRun")]
     [SerializeField] private LayerMask _whatIsWallRun;
@@ -67,6 +70,7 @@ public class Player : MonoBehaviour
         _ground = false;
         _readyToJump = true;
         _hp = DifficultyTemp.TempHp;
+        _maxHp = DifficultyTemp.TempHp;
     }
 
     private void Start()
@@ -195,6 +199,7 @@ public class Player : MonoBehaviour
     public void LivesCount()
     {
         _hp -= 1;
+        
         if (_hp < DifficultyTemp.TempHp) // Ивент для хп худа. Вставить в метод, где отнимается хп
         {
             if (HpChanged != null)
@@ -211,6 +216,21 @@ public class Player : MonoBehaviour
         {
             Respawn();
         }
+    }
+
+    public void CheckpointRestoreHP(int hpRestoreValue)
+    {
+        if (_hp < _maxHp )
+        {
+            _hp += hpRestoreValue;
+            
+            if (HpChanged != null)
+            {
+                HpChanged();
+            }                
+           
+        }
+        
     }
 
     
