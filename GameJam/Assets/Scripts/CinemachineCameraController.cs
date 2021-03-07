@@ -34,6 +34,9 @@ public class CinemachineCameraController : CinemachineExtension
     private float _smoothedTilt;
     [SerializeField] private float _tiltsSpeed;
 
+    public bool IsReversed;
+    [SerializeField] private float _reverseGravityTurnSpeed;
+    private float _reverseGravityAngle;
 
     protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage,
     ref CameraState state, float deltaTime)
@@ -55,6 +58,15 @@ public class CinemachineCameraController : CinemachineExtension
         _smoothedTilt = Mathf.Lerp(_smoothedTilt, Tilt, _tiltsSpeed);
         cinemachineRecomposer.m_Dutch = _smoothedTilt;
         cinemachineRecomposer.m_Pan = -_smoothedTilt * _panMultiplier;
+    }
+
+    public void Reverse()
+    {
+
+    }
+    public void UnReverse()
+    {
+
     }
 }
 
