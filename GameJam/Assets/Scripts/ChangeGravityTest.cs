@@ -139,10 +139,10 @@ public class ChangeGravityTest : MonoBehaviour
 
     private void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal"); 
+        float horizontal = -Input.GetAxis("Horizontal"); 
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(-horizontal, 0, -vertical);
+        Vector3 move = new Vector3(horizontal, 0, vertical);
 
         if (_ground)
         {
@@ -247,7 +247,7 @@ public class ChangeGravityTest : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(horizontal, 0, vertical);
+        Vector3 move = new Vector3(-horizontal, 0, vertical);
 
         float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
         Vector3 movementDirectionForward = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
@@ -260,11 +260,11 @@ public class ChangeGravityTest : MonoBehaviour
         //Make sure char sticks to wall
         if (_isWallRight)
         {
-            _rb.AddForce(movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+            _rb.AddForce(-movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
         }
         else
         {
-            _rb.AddForce(-movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
+            _rb.AddForce(movementDirectionRight * _wallrunForce / 5 * Time.deltaTime);
         }
 
 
@@ -288,8 +288,8 @@ public class ChangeGravityTest : MonoBehaviour
 
 
 
-        _isWallRight = Physics.Raycast(transform.position, movementDirectionRight, 2f, _whatIsWallRun);
-        _isWallLeft = Physics.Raycast(transform.position, -movementDirectionRight, 2f, _whatIsWallRun);
+        _isWallRight = Physics.Raycast(transform.position, -movementDirectionRight, 2f, _whatIsWallRun);
+        _isWallLeft = Physics.Raycast(transform.position, movementDirectionRight, 2f, _whatIsWallRun);
 
         Debug.DrawRay(transform.position, movementDirectionRight * 2f, Color.red);
         Debug.DrawRay(transform.position, -movementDirectionRight * 2f, Color.red);
@@ -298,13 +298,13 @@ public class ChangeGravityTest : MonoBehaviour
         {
             if (_isWallLeft)
             {
-                _cinemachineCameraController.Offset = _wallRunOffset;
-                _cinemachineCameraController.Tilt = -_WallRunTilt;
+                _cinemachineCameraController.Offset = new Vector2(-_wallRunOffset.x, _wallRunOffset.y);
+                _cinemachineCameraController.Tilt = _WallRunTilt;
             }
             else if (_isWallRight)
             {
-                _cinemachineCameraController.Offset = new Vector2(-_wallRunOffset.x, _wallRunOffset.y);
-                _cinemachineCameraController.Tilt = _WallRunTilt;
+                _cinemachineCameraController.Offset = _wallRunOffset;
+                _cinemachineCameraController.Tilt = -_WallRunTilt;
             }
         }
         else
