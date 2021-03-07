@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Oleg\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Oleg\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_GameJam.-1099464142.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Oleg\GGJ\GameJam\GameJam" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="FPS.cs" t="Include" />
+        <e p="Materials" t="Include">
+          <e p="Fur" t="Include">
+            <e p="_haders" t="Include">
+              <e p="Fur_0_1_Basic" t="Include">
+                <e p="FurHelper.cginc" t="Include" />
+                <e p="FurShader.shader" t="Include" />
+              </e>
+              <e p="Fur_0_2_Attributes" t="Include">
+                <e p="FurHelper.cginc" t="Include" />
+                <e p="FurShader.shader" t="Include" />
+              </e>
+              <e p="Fur_0_3_Force" t="Include">
+                <e p="FurHelper.cginc" t="Include" />
+                <e p="FurShader.shader" t="Include" />
+              </e>
+              <e p="Fur_0_4_RimColor" t="Include">
+                <e p="FurHelper.cginc" t="Include" />
+                <e p="FurShader.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CameraController.cs" t="Include" />
+          <e p="CheckPoint.cs" t="Include" />
+          <e p="CinemachineCameraController.cs" t="Include" />
+          <e p="MouseLook.cs" t="Include" />
+          <e p="NewBehaviourScript.cs" t="Include" />
+          <e p="OlegN" t="Include">
+            <e p="Bonus.cs" t="Include" />
+            <e p="FollingPlatform.cs" t="Include" />
+            <e p="Force.cs" t="Include" />
+            <e p="ForceMultiPlayer.cs" t="Include" />
+            <e p="RotateTrap.cs" t="Include" />
+            <e p="TerningPlatforms.cs" t="Include" />
+          </e>
+          <e p="Player.cs" t="Include" />
+          <e p="TubeGravity.cs" t="Include" />
+        </e>
+        <e p="TubeBoost.cs" t="Include" />
+        <e p="UI" t="Include">
+          <e p="Code" t="Include">
+            <e p="BonusDurationUI.cs" t="Include" />
+            <e p="DifficultyTemp.cs" t="Include" />
+            <e p="GamePause.cs" t="Include" />
+            <e p="HealthPointUI.cs" t="Include" />
+            <e p="MenuCode.cs" t="Include" />
+            <e p="MessagesUI.cs" t="Include" />
+            <e p="NameManager.cs" t="Include" />
+            <e p="SoundControllerUI.cs" t="Include" />
+            <e p="TestBonus.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="GameJam.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

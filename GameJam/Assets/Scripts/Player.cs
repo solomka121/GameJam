@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -23,10 +24,12 @@ public class Player : MonoBehaviour
     public bool _isDoubleJumpActive; 
 
     [Header("HP")]
-    [SerializeField] private int _countHp;
+    //[SerializeField] private int _countHp;
     private float _deathLevel;
-    private int _hp;
+    internal int _hp; //нужен internal для UI
     public Vector3 CurrentCheckPoint;
+    public delegate void HpChange(); //делегат для хп худа
+    public event HpChange HpChanged; // ивент для хп худа
 
     [Header("WallRun")]
     [SerializeField] private LayerMask _whatIsWallRun;
@@ -60,7 +63,7 @@ public class Player : MonoBehaviour
         _drag = _rb.drag;
         _rb.drag = _maxGroundDrag;
         _ground = false;
-        _hp = _countHp;
+        _hp = DifficultyTemp.TempHp;
         _readyToJump = true;
     }
 
@@ -187,23 +190,17 @@ public class Player : MonoBehaviour
 
     #region HP
 
-    public void LivesCount(int damage)
-    {
-        _hp -= damage;
-
-        if (_hp <= 0)
-        {
-            Death();
-        }
-        else
-        {
-            Respawn();
-        }
-    }
 
     public void LivesCount()
     {
         _hp -= 1;
+        if (_hp < DifficultyTemp.TempHp) // Ивент для хп худа. Вставить в метод, где отнимается хп
+        {
+            if (HpChanged != null)
+            {
+                HpChanged();
+            }                
+        }
 
         if (_hp <= 0)
         {
