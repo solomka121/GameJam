@@ -223,7 +223,7 @@ public class ChangeGravityTest : MonoBehaviour
 
     private void CheckDeathLevel()
     {
-        if (transform.position.y <= _deathLevel)
+        if (transform.position.y <= _deathLevel || transform.position.y > 295f)
         {
             LivesCount();
         }

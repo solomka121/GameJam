@@ -23,9 +23,8 @@ public class Player : MonoBehaviour
     public bool _isDoubleJumpActive; 
 
     [Header("HP")]
-    [SerializeField] private int _countHp;
+    [SerializeField] private int _hp;
     private float _deathLevel;
-    private int _hp;
     public Vector3 CurrentCheckPoint;
 
     [Header("WallRun")]
@@ -60,7 +59,6 @@ public class Player : MonoBehaviour
         _drag = _rb.drag;
         _rb.drag = _maxGroundDrag;
         _ground = false;
-        _hp = _countHp;
         _readyToJump = true;
     }
 

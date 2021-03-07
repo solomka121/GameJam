@@ -63824,7 +63824,7 @@ MonoBehaviour:
     m_Bits: 6400
   _maxDoubleJump: 1
   _isDoubleJumpActive: 0
-  _countHp: 500
+  _hp: 500
   CurrentCheckPoint: {x: 0, y: 0, z: 0}
   _whatIsWallRun:
     serializedVersion: 2
@@ -68042,7 +68042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832149485890567879}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 16.317978, y: -3.3808455, z: -10.015544}
+  m_LocalPosition: {x: 48.5, y: -3.4, z: -2.5}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 543450651870931784}
