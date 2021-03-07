@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Transform _camera;
     [SerializeField] private CinemachineCameraController _cinemachineCameraController;
-    [SerializeField] private float _offset;
+    [SerializeField] private Vector2 _offset;
 
     [Header("Drag controller")]
     [SerializeField] private float _maxGroundDrag;
@@ -325,15 +325,18 @@ public class Player : MonoBehaviour
             if (_isWallLeft)
             {
                 _cinemachineCameraController.Offset = _offset;
+                _cinemachineCameraController.Tilt = -15;
             }
             else if (_isWallRight)
             {
-                _cinemachineCameraController.Offset = -_offset;
+                _cinemachineCameraController.Offset = new Vector2(-_offset.x , _offset.y);
+                _cinemachineCameraController.Tilt = 15;
             }
         }
         else
         {
-            _cinemachineCameraController.Offset = 0f;
+            _cinemachineCameraController.Offset = Vector2.zero;
+            _cinemachineCameraController.Tilt = 0;
         }
 
 
