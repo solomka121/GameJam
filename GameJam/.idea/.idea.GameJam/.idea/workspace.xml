@@ -2,153 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8486db16-98f1-4830-870d-dbe481d41fc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/CheckPoint.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/CheckPoint.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/CheckPoint2.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/CheckPoint2.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ES_Firework Burst 12 - SFX Producer.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ES_Firework Burst 12 - SFX Producer.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ES_Firework Whistle - SFX Producer.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ES_Firework Whistle - SFX Producer.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ES_Fireworks Burst 4 - SFX Producer.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ES_Fireworks Burst 4 - SFX Producer.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/AuraTrail.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/AuraTrail.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/BurstTrail.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/BurstTrail.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/GlowExplosion.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/GlowExplosion.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/HeartMat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/HeartMat.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/RocketTrail.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/RocketTrail.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Rockets.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Rockets.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Spark.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Spark.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/CircleRainbow15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/CircleRainbow15.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet1.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet1_LightMap.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet1_LightMap.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet_LightMap.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/ParticleSheet_LightMap.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/SparksCollision.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/SparksCollision.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/SparksCollision1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/SparksCollision1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_aves23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_aves23.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle101.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle101.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle113.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle113.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle134.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle134.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle19n.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle19n.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle38.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle38.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ircle8.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ireball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ireball.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare21.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare_HQ.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lare_HQ.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lash21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lash21.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lash23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_lash23.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_low1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_low1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_moke20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_moke20.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_moke21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_moke21.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise29.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise34.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise34.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise35t.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise35t.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise69.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_oise69.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ormalMap8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ormalMap8.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ormalMap9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ormalMap9.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_park.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail21.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail25.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail58.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail58.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail75.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_rail75.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ura16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/_ura16.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/pngfind.com-particle-png-858715.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Texture/pngfind.com-particle-png-858715.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Trail1.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireWorksParticleSystem/Trail1.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/Fireworks.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/Fireworks.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireworksParticleSoundSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/FireworksParticleSoundSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ForceUp.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/ForceUp.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/MagicAura.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/MagicAura.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/heart pixel art 254x254.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Jenek/heart pixel art 254x254.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka1.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka1.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka2.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka2.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka3.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka3.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka4.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/Popcorinka4.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/PopcornBusket.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/PopcornBusket.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/коробкапопкорна.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/коробкапопкорна.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка2.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка2.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка3.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка3.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка4.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Popkorn/штучка4.fbx.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CheckPoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/UI code/MessagesUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI code/MessagesUI.cs" afterDir="false" />
     </list>
@@ -168,9 +24,10 @@
       <option value="$PROJECT_DIR$/Assets/UI/UI code/MenuCode.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/UI code/HealthPointUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CheckPoint.cs" />
+      <option value="$PROJECT_DIR$/Assets/UI/UI code/Message.cs" />
       <option value="$PROJECT_DIR$/Assets/UI/UI code/MessagesUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pQzVqCCeQkWPM2R3rbqdqLPRbE" />
@@ -224,7 +81,7 @@
       <updated>1615130129406</updated>
       <workItem from="1615130142505" duration="961000" />
       <workItem from="1615139552626" duration="5427000" />
-      <workItem from="1615150879444" duration="3057000" />
+      <workItem from="1615150879444" duration="6025000" />
     </task>
     <servers />
   </component>

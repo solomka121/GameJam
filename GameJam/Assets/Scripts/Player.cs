@@ -535,12 +535,6 @@ public class Player : MonoBehaviour
         Jump();
         WallJump();
 
-        //DELETE
-        if (Input.GetMouseButtonDown(1))
-        {
-            LivesCount();
-        }
-        //DELETE
 
         WallRunInput();
         CheckForWall();

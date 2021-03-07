@@ -6,16 +6,21 @@ namespace DefaultNamespace
 {
     public class MessagesUI : MonoBehaviour
     {
-        [SerializeField] public GameObject message;
+        [SerializeField] public GameObject messages;
         [SerializeField] public GamePause GamePause;
+        //private int counter;
 
-    
+        /*private void Awake()
+        {
+            counter = 0;
+        }*/
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<Player>())
             {
                 Time.timeScale = 0;
-                message.SetActive(true);
+                messages.SetActive(true);
                 MenuCode.CursorShow();
                 GamePause.messageUIActive = true;
             }
@@ -24,7 +29,7 @@ namespace DefaultNamespace
         public void CloseMessage()
         {
             Time.timeScale = 1;
-            message.SetActive(false);
+            messages.SetActive(false);
             MenuCode.CursorLock();
             GamePause.messageUIActive = false;
             gameObject.SetActive(false);

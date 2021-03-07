@@ -61,6 +61,7 @@
             <e p="GamePause.cs" t="Include" />
             <e p="HealthPointUI.cs" t="Include" />
             <e p="MenuCode.cs" t="Include" />
+            <e p="Message.cs" t="Include" />
             <e p="MessagesUI.cs" t="Include" />
             <e p="NameManager.cs" t="Include" />
             <e p="SoundControllerUI.cs" t="Include" />
